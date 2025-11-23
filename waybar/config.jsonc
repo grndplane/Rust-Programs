@@ -1,0 +1,151 @@
+// -*- mode: jsonc -*-
+
+{
+    "output": "DP-4",
+    "ipc": true,
+    "layer": "overlay",   
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 24, // Waybar height (to be removed for auto height)
+    "spacing": 4, // Gaps between modules (4px)
+    "modules-left": [
+        "custom/window-title",
+        "pulseaudio",
+        "network"
+    ],
+    "modules-center": [
+        "custom/clock",
+        "custom/weather"
+    ],
+    "modules-right": [
+        "wlr/taskbar",
+        "tray",
+        "custom/temperature",
+        "custom/memory",
+        "custom/intel-arc-gpu",
+        "custom/raid_check",
+        "custom/disk_root",
+        "custom/disk_home",
+        "custom/battery_mon",
+        "custom/loop_switch",
+        "custom/power"
+    ],
+    "custom/window-title": {
+        "format": "<span weight=\"bold\"> {} </span>",
+        "interval": 1,
+        "exec": "$HOME/Shell_Scripts/niri_active",
+    },
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+    "wlr/taskbar": {
+    "all-outputs": true,
+    "format": "{icon}",
+    "icon-size": 14,
+    "spacing": 6,
+    "icon-theme": "Infinity-Dark-Icons",
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "ignore-list": [
+        "Alacritty"
+      ],
+    },
+    "tray": {
+        "icon-theme": "Infinity-Dark-Icons",
+        "spacing": 6
+    },
+    "custom/clock": {
+        "format": "<span weight=\"bold\"> {} </span>",
+        "exec": "date +\"%a, %b %d, %-I:%M %p \"",
+        "interval": 1,
+        "on-click": "gnome-calendar"
+    },
+    "custom/weather": {
+        "format": "<span weight=\"bold\"> {} </span>",
+        "interval": 30,
+        "exec": "$HOME/Shell_Scripts/weather-plugin",
+        "on-click": "alacritty --hold -e curl https://wttr.in/West+Covina?putAF3"
+    },
+    "custom/temperature": {
+        "format": "<span weight=\"bold\">{}</span>",
+        "interval": 3,
+        "exec": "$HOME/Shell_Scripts/cpu_use_temp",  // Display the current state
+        "return-type": "json"
+    },
+     "custom/memory": {
+        "format":"<span weight=\"bold\">{}</span>",
+        "interval": 3,
+        "exec": "$HOME/Shell_Scripts/memory",  // Display the current state
+        "return-type": "json"
+    },
+    "network": {
+        "format-wifi": "<span color=\"#C8EBC8\" weight=\"bold\"> {essid} ({signalStrength}%)  </span>",
+        "format-ethernet": "<span color=\"#C8EBC8\" weight=\"bold\"> {ifname}/{cidr}  </span>",
+        "tooltip-format": "<span color=\"#C8EBC8\" weight=\"bold\"> {ifname} via {gwaddr}  </span>",
+        "format-linked": "<span color=\"#C8EBC8\" weight=\"bold\"> {ifname} (No IP)  </span>",
+        "format-disconnected": "<span color=\"#FF0000\" weight=\"bold\"> Disconnected ⚠ </span>",
+        "format-alt":"<span color=\"#C8EBC8\" weight=\"bold\"> {ifname}: {ipaddr}/{cidr} </span>"
+    },
+    "pulseaudio": {
+        "format": "<span color=\"#C8EBC8\" weight=\"bold\"> {volume}% {icon} {format_source} </span>",
+        "format-bluetooth": "<span color=\"#C8EBC8\" weight=\"bold\">  {volume}% {icon} {format_source} </span>",
+        "format-bluetooth-muted": "<span color=\"#FF0000\" weight=\"bold\"> 🔇 {icon} {format_source} </span>",
+        "format-muted": "<span color=\"#FF0000\" weight=\"bold\"> 🔇 {format_source} </span>",
+        "format-source": "<span color=\"#C8EBC8\" weight=\"bold\"> {volume}%  </span>",
+        "format-source-muted": "<span color=\"#FF0000\" weight=\"bold\"></span>",
+        "format-icons": {
+            "headphone": "  ",
+            "hands-free": "  ",
+            "headset": "  ",
+            "phone": "  ",
+            "portable": "  ",
+            "car": "  ",
+            "default": ["  ", "  ", "  "]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/intel-arc-gpu": {
+        "format": "<span weight=\"bold\">{}</span>",
+        "interval": 3,
+        "exec": "$HOME/Shell_Scripts/intel-arc-gpu",  // Display the current state
+        "return-type": "json"
+    },
+     "custom/raid_check": {
+        "format": "<span weight=\"bold\">{}</span>",
+        "interval": 30,
+        "exec": "$HOME/Shell_Scripts/raid_check",
+        "return-type": "json"
+    },
+     "custom/disk_home": {
+        "format": "🏠 <span weight=\"bold\">{}</span>",
+        "interval": 30,
+        "exec": "df -h --output=pcent /home | tail -1 | tr -d ' '"
+    },
+    "custom/disk_root": {
+        "format": "🖴 <span weight=\"bold\">{}</span>",
+        "interval": 30,
+        "exec": "df -h --output=pcent / | tail -1 | tr -d ' '"
+    },
+    "custom/battery_mon": {
+        "format": "<span weight=\"bold\">{}</span>",
+        "interval": 450,
+        "exec": "$HOME/Shell_Scripts/battery_mon",  // Display the current state
+    },
+    "custom/loop_switch": {
+        "format": "{}",
+        "interval": 1,
+        "exec": "$HOME/Shell_Scripts/loop_switch",  // Display the current state
+        "on-click": "$HOME/Shell_Scripts/loop_switch toggle",
+        "return-type": "json"
+    },
+    "custom/power": {
+    "format":  "<span color=\"#FF0000\">⏻</span>", 
+    "on-click": "$HOME/Shell_Scripts/fuzzel-powermenu.sh",
+    },
+}

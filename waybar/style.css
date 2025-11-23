@@ -1,0 +1,174 @@
+/* General styles */
+* {
+    font-family: SymbolsNerdFont, JetBrains Mono;
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+}
+
+window#waybar {
+    /* border: 1px solidrgba(0, 0, 0, 0.8);  Keep border for waybar window */
+    border: 0px;  
+    border-radius: 12px;
+    margin: 0;
+    padding: 0; /* Remove padding */
+    background-color:  rgba(0, 0, 0, 0);
+    color: #C8EBC8; /* Light green foreground color */
+    transition-property: background-color;
+    transition-duration: 0.5s;
+}
+
+#tray {
+     /* background-color:rgba(0, 0, 0, 0.8); */
+    border: 0px;  
+    background-color:rgba(0, 0, 0, 1.0); 
+    border-radius: 4px 4px 4px 4px;
+    margin: 0px 0px 0px 0px;
+    border: 1px solid rgb(91, 11, 241);
+}
+
+/* Configuring the taskbar */
+#taskbar {
+   border: 0px;  
+   background-color:rgba(0, 0, 0, 1.0); 
+   border-radius: 4px 4px 4px 4px;
+   margin: 0px 0px 0px 0px;
+   border: 1px solid rgb(91, 11, 241);
+}
+
+#taskbar button { 
+}
+
+#taskbar button.active {
+    background-color: rgba(127, 127, 127, 0.5);
+}
+
+button {
+    box-shadow: inset 0 -1px transparent;
+    border: none; /* Remove border */
+    background-color: transparent;
+}
+
+button:hover {
+    box-shadow: inset 0 -1px #C8EBC8; /* Light green foreground color */
+}
+
+#custom-clock {
+   border: 0px;  
+   background-color:rgba(0, 0, 0, 1.0); 
+   border-radius: 4px 4px 4px 4px;
+   margin: 0px 0px 0px 0px;
+   border: 1px solid rgb(91, 11, 241);
+}
+
+#custom-weather {
+   border: 0px;  
+   background-color:rgba(0, 0, 0, 1.0); 
+   border-radius: 4px 4px 4px 4px;
+   margin: 0px 0px 0px 0px;
+   border: 1px solid rgb(91, 11, 241);
+}
+
+#cpu {
+   border: 0px;  
+   background-color:rgba(0, 0, 0, 1.0); 
+   border-radius: 4px 4px 4px 4px;
+   margin: 0px 0px 0px 0px;
+   border: 1px solid rgb(91, 11, 241);
+}
+
+#custom-memory {
+   border: 0px;  
+   background-color:rgba(0, 0, 0, 1.0); 
+   border-radius: 4px 4px 4px 4px;
+   margin: 0px 0px 0px 0px;
+   border: 1px solid rgb(91, 11, 241);
+}
+
+#custom-intel-arc-gpu {
+   border: 0px;  
+   background-color:rgba(0, 0, 0, 1.0); 
+   border-radius: 4px 4px 4px 4px;
+   margin: 0px 0px 0px 0px;
+   border: 1px solid rgb(91, 11, 241);
+}
+
+#network {
+   border: 0px;  
+   background-color:rgba(0, 0, 0, 1.0); 
+   border-radius: 4px 4px 4px 4px;
+   margin: 0px 0px 0px 0px;
+   border: 1px solid rgb(91, 11, 241);
+}
+
+#pulseaudio {
+   border: 0px;  
+   background-color:rgba(0, 0, 0, 1.0); 
+   border-radius: 4px 4px 4px 4px;
+   margin: 0px 0px 0px 0px;
+   border: 1px solid rgb(91, 11, 241);
+}
+
+#custom-temperature {
+   border: 0px;  
+   background-color:rgba(0, 0, 0, 1.0); 
+   border-radius: 4px 4px 4px 4px;
+   margin: 0px 0px 0px 0px;
+   border: 1px solid rgb(91, 11, 241);
+}
+
+#custom-window-title {
+   border: 0px;  
+   background-color:rgba(0, 0, 0, 1.0); 
+   border-radius: 4px 4px 4px 4px;
+   margin: 0px 0px 0px 0px;
+   border: 1px solid rgb(91, 11, 241);
+}
+
+#custom-raid_check {
+   border: 0px;  
+   background-color:rgba(0, 0, 0, 1.0); 
+   border-radius: 4px 4px 4px 4px;
+   margin: 0px 0px 0px 0px;
+   border: 1px solid rgb(91, 11, 241);
+}
+
+#custom-disk_home {
+   border: 0px;  
+   background-color:rgba(0, 0, 0, 1.0); 
+   border-radius: 4px 4px 4px 4px;
+   margin: 0px 0px 0px 0px;
+   border: 1px solid rgb(91, 11, 241);
+}
+
+#custom-disk_root {
+   border: 0px;  
+   background-color:rgba(0, 0, 0, 1.0); 
+   border-radius: 4px 4px 4px 4px;
+   margin: 0px 0px 0px 0px;
+   border: 1px solid rgb(91, 11, 241);
+}
+
+#custom-battery_mon {
+   border: 0px;  
+   background-color:rgba(0, 0, 0, 1.0); 
+   border-radius: 4px 4px 4px 4px;
+   margin: 0px 0px 0px 0px;
+   border: 1px solid rgb(91, 11, 241);
+}
+
+#custom-loop_switch {
+   border: 0px;  
+   background-color:rgba(0, 0, 0, 1.0); 
+   border-radius: 4px 4px 4px 4px;
+   margin: 0px 0px 0px 0px;
+   border: 1px solid rgb(91, 11, 241);
+}
+
+#custom-power {
+   border: 0px;  
+   background-color:rgba(0, 0, 0, 1.0); 
+   border-radius: 4px 4px 4px 4px;
+   margin: 0px 0px 0px 0px;
+   border: 1px solid rgb(91, 11, 241);
+}

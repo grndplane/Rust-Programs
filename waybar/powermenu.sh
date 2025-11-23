@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+THEME="$HOME/.config/niri/waybar/powermenu.rasi"
+
+# Options
+update="Update"
+shutdown="Shutdown"
+reboot="Restart"
+lock="Lock"
+suspend="Suspend"
+logout="Logout"
+
+# Variable passed to rofi
+options="$lock\n$suspend\n$logout\n$reboot\n$shutdown"
+
+chosen="$(echo -e "$options" | $rofi_command -dmenu -selected-row 0)"
+case $chosen in
+    $shutdown)
+        systemctl poweroff
+        ;;
+    $reboot)
+        systemctl reboot
+        ;;
+    $lock)
+        if [[ -f /usr/bin/i3lock ]]; then
+            i3lock
+        elif [[ -f /usr/bin/betterlockscreen ]]; then
+            betterlockscreen -l
+        fi
+        ;;
+    $suspend)
+        systemctl suspend
+        ;;
+    $logout)
+        loginctl kill-session $XDG_SESSION_ID
+        ;;
+    $update)
+        sudo -E mintupdate
+        ;;
+esac
